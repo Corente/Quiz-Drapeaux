@@ -1,0 +1,32 @@
+import json
+import os
+countries_path = "./db.json"
+leaderboard_path = "./leaderboard.json"
+
+
+def get_country(id):
+    file = open(countries_path)
+    data = json.load(file)
+    ret = {}
+    for i in data:
+        if int(i["id"]) == id:
+            ret = i
+            break
+    file.close()
+    return ret
+    
+def get_leaderboard():
+    file = open(leaderboard_path, 'r')
+    data = json.load(file)
+    file.close()
+    return data
+
+def post_leaderboard(name, score):
+    file = open(leaderboard_path, 'r+')
+    data = json.load(file)
+    data[name] = score
+    file.close()
+    file = open(leaderboard_path, "w")
+    json.dump(data, file)
+    file.close()
+    return {'request': 'sucess'}
