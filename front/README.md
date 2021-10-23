@@ -7,12 +7,13 @@ Petit site de Quizz de drapeaux afin d'apprendre le React
 - Un timer
 - Le bouton Pass
 - Un compteur de score
+- Mise en place d'un classement
 
 # TODO
 - Du veritable css
 - Sauvegarder le score
 - Faire fonctionner les boutons de Score
-- Mise en place d'un classement
+
 
 # Aide au dev
 

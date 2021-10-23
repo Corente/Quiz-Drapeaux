@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import Navigation from '../components/Navigation';
 
 const Classement = () => {
   const [error, setError] = useState(null);
@@ -13,11 +13,7 @@ const Classement = () => {
         (result) => {
           setIsLoaded(true);
           SetData(result);
-          console.log(data);
         },
-        // Remarque : il faut gérer les erreurs ici plutôt que dans
-        // un bloc catch() afin que nous n’avalions pas les exceptions
-        // dues à de véritables bugs dans les composants.
         (error) => {
           setIsLoaded(true);
           setError(error);
@@ -32,6 +28,7 @@ const Classement = () => {
   } else {
     return (
       <div className="Classement">
+        <Navigation />
         <h1>Classement</h1>
         <ul>
           {data.map(data => (
