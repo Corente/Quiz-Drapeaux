@@ -1,7 +1,9 @@
 import React from 'react';
-import { scoreboard } from "../components/scoreboard"
+import { scoreboard } from "../components/Scoreboard"
 
 const Classement = () => {
+    scoreboard = JSON.parse(scoreboard)
+
     return (
         <div className="Classement">
             <h1>Classement</h1>

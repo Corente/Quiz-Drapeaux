@@ -7,13 +7,19 @@ const Card = (props) => {
     const [First, SetFirst] = useState(true);
     const data = JSON.parse(db);
 
+    function ChangeFlag()
+    {
+        var rd = Math.floor(Math.random() * 195);
+        SetGuess(rd);
+        SetReponse("");
+    }
+
     useEffect(() => {
         
         if (First)
         {
             SetFirst(false);
-            var rd = Math.floor(Math.random() * 195);
-            SetGuess(rd);
+            ChangeFlag();
         }
 
         const CheckAnswer = () => {
@@ -21,9 +27,7 @@ const Card = (props) => {
             {
                 if (data[Guess].Nom[tmp].toLocaleLowerCase() === Reponse.toString().toLocaleLowerCase())
                 {
-                    var rd = Math.floor(Math.random() * 195);
-                    SetGuess(rd);
-                    SetReponse("");
+                    ChangeFlag();
                     props.SetPoints(props.Points + 1);
                 }
             }
@@ -37,10 +41,9 @@ const Card = (props) => {
             <img src={data[Guess].ImageURL} alt="Le drapeau à deviner" />
             <br/>
             <input value={ Reponse } type="text" onChange={(e) => SetReponse(e.target.value)} placeholder="Quel est le nom de pays associé à ce drapeau"/>
+            <button onClick={ChangeFlag}>Pass</button>
         </div>
     );
 };
-
-//
 
 export default Card;
