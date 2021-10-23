@@ -10,3 +10,5 @@ Petit site de Quizz de drapeaux afin d'apprendre le React
 - Un timer
 - Un compteur de score
 - Mise en place d'un classement
+
+une bonne aide[https://dev.to/turpp/passing-data-between-react-components-af7]

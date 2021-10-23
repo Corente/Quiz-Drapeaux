@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { db } from "./db.js";
 
-const Card = () => {
+const Card = (props) => {
     const [Guess, SetGuess] = useState(0);
     const [Reponse, SetReponse] = useState("");
     const [First, SetFirst] = useState(true);
@@ -24,6 +24,7 @@ const Card = () => {
                     var rd = Math.floor(Math.random() * 195);
                     SetGuess(rd);
                     SetReponse("");
+                    props.SetPoints(props.Points + 1);
                 }
             }
         };
