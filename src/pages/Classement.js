@@ -1,17 +1,14 @@
-import React from 'react';
-import { scoreboard } from "../components/Scoreboard"
+import React from "react";
 
 const Classement = () => {
-    scoreboard = JSON.parse(scoreboard)
-
-    return (
-        <div className="Classement">
-            <h1>Classement</h1>
-            <ul>
-                {scoreboard.map((data) => (<li>{data}</li>))}
-            </ul>
-        </div>
-    );
+  return (
+    <div className="Classement">
+      <h1>Classement</h1>
+      <ul>
+        <li>Futur Data</li>
+      </ul>
+    </div>
+  );
 };
 
 export default Classement;
