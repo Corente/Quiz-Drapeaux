@@ -1,1 +1,10 @@
-{"corentin": 1000, "julien": 2}
+[
+    {
+        "name": "corentin",
+        "score":"1000"
+    },
+    {
+        "name": "julien",
+        "score": "2"
+    }
+]

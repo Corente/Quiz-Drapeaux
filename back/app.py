@@ -18,5 +18,10 @@ def post_leaderboard():
     score = data["score"]
     return database.post_leaderboard(name, score)
 
+@app.after_request
+def apply_caching(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
+
 if __name__ == '__main__':
     app.run()

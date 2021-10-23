@@ -24,7 +24,10 @@ def get_leaderboard():
 def post_leaderboard(name, score):
     file = open(leaderboard_path, 'r+')
     data = json.load(file)
-    data[name] = score
+    entry = {}
+    entry["name"] = name
+    entry["score"] = score
+    data.append(entry)
     file.close()
     file = open(leaderboard_path, "w")
     json.dump(data, file)
