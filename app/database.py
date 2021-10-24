@@ -1,10 +1,9 @@
 import json
-import os
-countries_path = "./db.json"
-leaderboard_path = "./leaderboard.json"
+countries_path = "./files/db.json"
+leaderboard_path = "./files/leaderboard.json"
 
 
-def get_country(id):
+def database_get_country(id):
     file = open(countries_path)
     data = json.load(file)
     ret = {}
@@ -15,14 +14,14 @@ def get_country(id):
     file.close()
     return ret
     
-def get_leaderboard():
+def database_get_leaderboard():
     file = open(leaderboard_path, 'r')
     data = json.load(file)
     data.sort(key=lambda k: k['score'], reverse=True)
     file.close()
     return data
 
-def post_leaderboard(name, score):
+def database_post_leaderboard(name, score):
     if (name == ""):
         return
     file = open(leaderboard_path, 'r+')

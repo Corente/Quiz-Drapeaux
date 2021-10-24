@@ -1,17 +1,17 @@
 from flask import Flask, jsonify, request, abort
 from flask.wrappers import Response
-import database
+from app.database import *
 import ast
 
 app = Flask(__name__)
 
 @app.route('/api/country/<int:id>', methods=['GET'])
 def get_country(id):
-    return jsonify(database.get_country(id))
+    return jsonify(database_get_country(id))
 
 @app.route('/api/leaderboard/', methods=['GET'])
 def get_leaderboard():
-    return jsonify(database.get_leaderboard())
+    return jsonify(database_get_leaderboard())
 
 @app.route('/api/leaderboard', methods=['POST'])
 def post_leaderboard():
@@ -22,7 +22,7 @@ def post_leaderboard():
         data = request.json
     name = data["name"]
     score = data["score"]
-    database.post_leaderboard(name, score)
+    database_post_leaderboard(name, score)
     return {'request': 'sucess'}
     
 @app.after_request
