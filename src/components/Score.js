@@ -8,7 +8,7 @@ const Score = (props) => {
 
   function SaveScore()
   {
-    var address = "http://127.0.0.1:5000/api/leaderboard";
+    var address = "https://quizz-drapeaux-back.herokuapp.com/api/leaderboard";
     var score = props.Points;
     var data = JSON.stringify({"name":Pseudo, "score":score});
     var options = {
