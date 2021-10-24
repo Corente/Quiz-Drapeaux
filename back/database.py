@@ -23,6 +23,8 @@ def get_leaderboard():
     return data
 
 def post_leaderboard(name, score):
+    if (name == ""):
+        return
     file = open(leaderboard_path, 'r+')
     data = json.load(file)
     entry = {}

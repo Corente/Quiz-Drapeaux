@@ -10,7 +10,7 @@ const Quizz = () => {
     const [Points, SetPoints] = useState(0);
     
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 15);
+    time.setSeconds(time.getSeconds() + 10);
 
     return (
         <div className="Quizz">
@@ -23,8 +23,10 @@ const Quizz = () => {
                 </div>
             ) : (
                 <div>
-                    <h2>Score: { Points }</h2>
-                    <Timer expiryTimestamp={time} SetFinished={SetFinished} />
+                    <div className="grid">
+                        <div><span>Score: { Points }</span></div>
+                        <div className="timer"><Timer expiryTimestamp={time} SetFinished={SetFinished} /></div>
+                    </div>
                     <Card SetPoints={SetPoints} Points={Points}/>
                 </div>
                 

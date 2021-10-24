@@ -27,14 +27,16 @@ const Classement = () => {
     return <div>Chargement...</div>;
   } else {
     return (
-      <div className="Classement">
+      <div>
         <Navigation />
-        <h1>Classement</h1>
-        <ul>
-          {data.map(data => (
-              <li key={data.name}>{data.name}:{data.score}</li>
-            ))}
-        </ul>
+        <div className="Classement">
+          <h1>Classement</h1>
+          <ol >
+            {data.map(data => (
+                <li key={data.name}>{data.name}: {data.score}</li>
+              ))}
+          </ol>
+        </div>
       </div>
     );
   }

@@ -22,19 +22,19 @@ const Score = (props) => {
   }
 
   return (
-    <div>
+    <div className="Score">
       <h1>Bravo tu as un score de:</h1>
       <h1>{props.Points}</h1>
       <br />
-      <h1>Veus-tu enregistrer ton score ?</h1>
+      <h1>Veux-tu enregistrer ton score ?</h1>
       <input
         value={Pseudo}
         type="text"
         placeholder="Ton pseudo ici"
         onChange={(e) => SetPseudo(e.target.value)}
       />
-      <button onClick={() => SaveScore()}>Oui enregistre le avec ce pseudo</button>
-      <button onClick={() => history.push("/")}>Non ca ira</button>
+      <button className="yes" onClick={() => SaveScore()}>Oui enregistre le avec ce pseudo</button>
+      <button className="no" onClick={() => history.push("/")}>Non ca ira</button>
     </div>
   );
 };

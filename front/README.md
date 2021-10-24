@@ -10,10 +10,10 @@ Petit site de Quizz de drapeaux afin d'apprendre le React
 - Mise en place d'un classement
 - Sauvegarder le score
 - Faire fonctionner les boutons de Score
+- Du veritable css
 
 # TODO
-- Du veritable css
-- Mettre un mini sleep dans le score accept
+- Un meilleur css mais giga flemme
 
 
 # Aide au dev

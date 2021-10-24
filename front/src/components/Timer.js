@@ -6,10 +6,8 @@ const Timer = (props) => {
     const { seconds, minutes } = useTimer({ expiryTimestamp, onExpire: () => {props.SetFinished(true);} });
 
     return (
-        <div className="Timer">
-            <div style={{ fontSize: '100px' }}>
+        <div className="Timer" style={{ fontSize: '100px' }}>
                 <span>{seconds + (minutes * 60)}</span>
-            </div>
         </div>
     );
 };

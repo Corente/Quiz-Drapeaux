@@ -1,4 +1,6 @@
 # Ici c'est les backend
 
-# Todo
+# Done
 - Envoyer le leaderboard trié
+
+# Todo
