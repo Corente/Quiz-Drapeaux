@@ -1,4 +1,6 @@
-# Quezako
+# Ici c'est les backend
 
-Racine du projet quizz drapeaux.
-Acces au back et front dans les fichiers correspondants
+# Done
+- Envoyer le leaderboard trié
+
+# Todo
