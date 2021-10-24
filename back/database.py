@@ -18,6 +18,7 @@ def get_country(id):
 def get_leaderboard():
     file = open(leaderboard_path, 'r')
     data = json.load(file)
+    data.sort(key=lambda k: k['score'], reverse=True)
     file.close()
     return data
 

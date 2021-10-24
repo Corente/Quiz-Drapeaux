@@ -15,16 +15,19 @@ def get_leaderboard():
 
 @app.route('/api/leaderboard', methods=['POST'])
 def post_leaderboard():
-    data = request.data
-    print(data)
-    data = ast.literal_eval(data.decode("utf-8"))
-    print(data)
+    if (request.json == None):
+        data = request.data
+        data = ast.literal_eval(data.decode("utf-8"))
+    else:
+        data = request.json
     name = data["name"]
     score = data["score"]
     database.post_leaderboard(name, score)
-    reponse = Response()
-    reponse.headers.add('Access-Control-Allow-Origin', '*')
-    return reponse
+    #reponse = Response()
+    #reponse.headers.add('Access-Control-Allow-Origin', '*')
+    return {'request': 'sucess'}
+    
+
 
 
 @app.after_request

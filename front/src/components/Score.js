@@ -18,7 +18,7 @@ const Score = (props) => {
       body: data
     };
     fetch(address, options);
-    history.push("/Classement")
+    history.push("/");
   }
 
   return (
