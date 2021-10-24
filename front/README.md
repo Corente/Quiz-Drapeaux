@@ -8,11 +8,12 @@ Petit site de Quizz de drapeaux afin d'apprendre le React
 - Le bouton Pass
 - Un compteur de score
 - Mise en place d'un classement
+- Sauvegarder le score
+- Faire fonctionner les boutons de Score
 
 # TODO
 - Du veritable css
-- Sauvegarder le score
-- Faire fonctionner les boutons de Score
+- Mettre un mini sleep dans le score accept
 
 
 # Aide au dev

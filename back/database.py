@@ -32,4 +32,3 @@ def post_leaderboard(name, score):
     file = open(leaderboard_path, "w")
     json.dump(data, file)
     file.close()
-    return {'request': 'sucess'}

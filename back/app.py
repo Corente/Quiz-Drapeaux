@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request, abort
+from flask.wrappers import Response
 import database
+import ast
 
 app = Flask(__name__)
 
@@ -13,10 +15,17 @@ def get_leaderboard():
 
 @app.route('/api/leaderboard', methods=['POST'])
 def post_leaderboard():
-    data = request.json
+    data = request.data
+    print(data)
+    data = ast.literal_eval(data.decode("utf-8"))
+    print(data)
     name = data["name"]
     score = data["score"]
-    return database.post_leaderboard(name, score)
+    database.post_leaderboard(name, score)
+    reponse = Response()
+    reponse.headers.add('Access-Control-Allow-Origin', '*')
+    return reponse
+
 
 @app.after_request
 def apply_caching(response):
