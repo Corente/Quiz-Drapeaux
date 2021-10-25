@@ -1,9 +1,36 @@
 import json
+import os
+import boto3
 countries_path = "./files/db.json"
 leaderboard_path = "./files/leaderboard.json"
+bucket_name = os.environ["AWS_BUCKET_NAME"]
+
+s3 = boto3.resource(
+    service_name = "s3",
+    region_name = os.environ["AWS_REGION"],
+    aws_secret_key_id = os.environ["AWS_SECRET_KEY_ID"],
+    aws_secret_access_key = os.environ["AWS_SECRET_ACCESS_KEY"]
+)
+
+def upload_file(filename):
+    if filename == "db":
+        s3.Bucket(bucket_name).upload_file(Filename=countries_path, key="db.json")
+    elif filename == "leaderboard":
+        s3.Bucket(bucket_name).upload_file(Filename=leaderboard_path, key="leaderboard.json")
+    else:
+        print("the fuck you are doing here")
+
+def download_file(filename):
+    if filename == "db":
+        s3.Bucket(bucket_name).download_file(Filename=countries_path, key="db.json")
+    elif filename == "leaderboard":
+        s3.Bucket(bucket_name).download_file(Filename=leaderboard_path, key="leaderboard.json")
+    else:
+        print("the fuck you are doing here")
 
 
 def database_get_country(id):
+    download_file("db")
     file = open(countries_path)
     data = json.load(file)
     ret = {}
@@ -15,6 +42,7 @@ def database_get_country(id):
     return ret
     
 def database_get_leaderboard():
+    download_file("leaderboard")
     file = open(leaderboard_path, 'r')
     data = json.load(file)
     data.sort(key=lambda k: k['score'], reverse=True)
@@ -42,3 +70,4 @@ def database_post_leaderboard(name, score):
     file = open(leaderboard_path, "w")
     json.dump(data, file)
     file.close()
+    upload_file("leaderboard")
