@@ -10,7 +10,7 @@ const Quizz = () => {
     const [Points, SetPoints] = useState(0);
     
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 10);
+    time.setSeconds(time.getSeconds() + 120);
 
     return (
         <div className="Quizz">
