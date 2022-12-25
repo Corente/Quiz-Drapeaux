@@ -4,17 +4,18 @@ from flask_cors import CORS
 import ast
 
 app = Flask(__name__)
-cors = CORS(app, resources={r'/api/*' : {'origins' : 'https://quiz.ourvoy.fr'}})
+#cors = CORS(app, resources={r'/api/*' : {'origins' : 'https://quiz.ourvoy.fr'}})
+cors = CORS(app, resources={r'*' : {'origins' : 'http://localhost:3000'}})
 
-@app.route('/api/country/<int:id>', methods=['GET'])
+@app.route('/country/<int:id>', methods=['GET'])
 def get_country(id):
     return jsonify(database_get_country(id))
 
-@app.route('/api/leaderboard/', methods=['GET'])
+@app.route('/leaderboard/', methods=['GET'])
 def get_leaderboard():
     return jsonify(database_get_leaderboard())
 
-@app.route('/api/leaderboard', methods=['POST'])
+@app.route('/leaderboard/', methods=['POST'])
 def post_leaderboard():
     """
     if (request.json == None):
