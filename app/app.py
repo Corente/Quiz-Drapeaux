@@ -1,9 +1,10 @@
-from flask import Flask, jsonify, request, abort
-from flask.wrappers import Response
+from flask import Flask, jsonify, request
 from app.database import *
+from flask_cors import CORS
 import ast
 
 app = Flask(__name__)
+cors = CORS(app, resources={r'/api/*' : {'origins' : 'https://quiz.ourvoy.fr'}})
 
 @app.route('/api/country/<int:id>', methods=['GET'])
 def get_country(id):
@@ -15,17 +16,15 @@ def get_leaderboard():
 
 @app.route('/api/leaderboard', methods=['POST'])
 def post_leaderboard():
+    """
     if (request.json == None):
         data = request.data
         data = ast.literal_eval(data.decode("utf-8"))
     else:
         data = request.json
+    """
+    data = request.json
     name = data["name"]
     score = data["score"]
     database_post_leaderboard(name, score)
     return {'request': 'sucess'}
-    
-@app.after_request
-def apply_caching(response):
-    response.headers["Access-Control-Allow-Origin"] = "*"
-    return response
