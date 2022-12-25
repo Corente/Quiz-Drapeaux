@@ -7,7 +7,8 @@ const Classement = () => {
   const [data, SetData] = useState([]);
 
   useEffect(() => {
-    fetch("https://quizz-drapeaux-back.herokuapp.com/api/leaderboard/")
+    //fetch("https://api.quiz.ourvoy.fr/leaderboard/")
+    fetch("http://127.0.0.1:5000/leaderboard")
       .then(res => res.json())
       .then(
         (result) => {

@@ -8,13 +8,13 @@ const Score = (props) => {
 
   function SaveScore()
   {
-    var address = "https://quizz-drapeaux-back.herokuapp.com/api/leaderboard";
+    //var address = "https://api.quiz.ourvoy.fr/leaderboard";
+    var address = "http://127.0.0.1:5000/leaderboard";
     var score = props.Points;
     var data = JSON.stringify({"name":Pseudo, "score":score});
     var options = {
       method: 'POST',
-      mode: 'no-cors',
-      headers: {'Accept': 'application/json', 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*'},
+      headers: {'Content-Type': 'application/json'},
       body: data
     };
     fetch(address, options);
