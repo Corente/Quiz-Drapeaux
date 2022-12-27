@@ -8,8 +8,8 @@ const Score = (props) => {
 
   function SaveScore()
   {
-    //var address = "https://api.quiz.ourvoy.fr/leaderboard";
-    var address = "http://127.0.0.1:5000/leaderboard";
+    var address = "https://api.quiz.ourvoy.fr/leaderboard";
+    //var address = "http://127.0.0.1:5000/leaderboard";
     var score = props.Points;
     var data = JSON.stringify({"name":Pseudo, "score":score});
     var options = {

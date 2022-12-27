@@ -12,8 +12,8 @@ const Card = (props) => {
     function ChangeFlag()
     {
         var rd = Math.floor(Math.random() * 195);
-        //var address = "https://api.quiz.ourvoy.fr/country/" + rd;
-        var address = "http://127.0.0.1:5000/country/" + rd;
+        var address = "https://api.quiz.ourvoy.fr/country/" + rd;
+        //var address = "http://127.0.0.1:5000/country/" + rd;
         console.log(address);
         fetch(address)
             .then(res => res.json())
