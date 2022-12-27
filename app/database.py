@@ -3,6 +3,7 @@ import os
 import boto3
 countries_path = "./files/db.json"
 leaderboard_path = "./files/leaderboard.json"
+
 bucket_name = os.environ["AWS_BUCKET_NAME"]
 
 s3 = boto3.resource(
@@ -27,7 +28,6 @@ def download_file(filename):
         s3.Bucket(bucket_name).download_file(Filename=leaderboard_path, Key="leaderboard.json")
     else:
         print("the fuck you are doing here")
-
 
 def database_get_country(id):
     download_file("db")
