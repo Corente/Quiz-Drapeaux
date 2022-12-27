@@ -4,8 +4,8 @@ from flask_cors import CORS
 import ast
 
 app = Flask(__name__)
-#cors = CORS(app, resources={r'/api/*' : {'origins' : 'https://quiz.ourvoy.fr'}})
-cors = CORS(app, resources={r'*' : {'origins' : 'http://localhost:3000'}})
+cors = CORS(app, resources={r'/api/*' : {'origins' : 'https://quiz.ourvoy.fr'}})
+#cors = CORS(app, resources={r'*' : {'origins' : 'http://localhost:3000'}})
 
 @app.route('/country/<int:id>', methods=['GET'])
 def get_country(id):
