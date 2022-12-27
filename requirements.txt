@@ -3,3 +3,4 @@ botocore
 flask
 flask-cors
 pyopenssl
+gunicorn
